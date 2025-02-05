@@ -2068,7 +2068,7 @@ Different units define element sizes:
 ```
 --- 
 
-##Optimizations & Best Practices  
+## Optimizations & Best Practices  
 
 ### 33.CSS Variables (`--var`)  
 - Reusable and maintainable styles using `:root`.  
@@ -2119,7 +2119,7 @@ Different units define element sizes:
 
   ---
 
-  ## Accessibility & Debugging  
+## Accessibility & Debugging  
 
 ### 37. CSS for Accessibility (a11y)  
 - **Contrast**: Ensure sufficient color contrast for readability.  
