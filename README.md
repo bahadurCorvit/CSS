@@ -1464,33 +1464,418 @@ Different units define element sizes:
 ### 25. Custom UI Elements  
 - **Checkboxes & Radio Buttons**: Styled using `appearance` or pseudo-elements.  
 - **Sliders**: Custom styles for `<input type="range">`.  
-  ```css
-  input[type="range"] {
-    -webkit-appearance: none;
-    width: 100%;
-  }
-  ```  
+```html
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Example</title>
+    <style>
+        /* Custom Style for Checkbox */
+        input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #555;
+            border-radius: 4px;
+            background-color: white;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* When checked */
+        input[type="checkbox"]:checked {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        /* Custom Checkmark */
+        input[type="checkbox"]:checked::after {
+            content: "✔";
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox"> Accept Terms & Conditions
+    </label>
+</body>
+</html>
+
+```  
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button Example</title>
+    <style>
+        /* Custom Style for Radio Button */
+        input[type="radio"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #555;
+            border-radius: 50%;
+            background-color: white;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* When selected */
+        input[type="radio"]:checked {
+            background-color: #2196F3;
+            border-color: #2196F3;
+        }
+
+        /* Custom Inner Circle */
+        input[type="radio"]:checked::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="radio" name="color" value="red"> Red
+    </label>
+    <label>
+        <input type="radio" name="color" value="blue"> Blue
+    </label>
+</body>
+</html>
+
+```
+#### Slider
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Example</title>
+    <style>
+        /* Slider Container */
+        input[type="range"] {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            appearance: none;
+        }
+
+        /* Slider Thumb */
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Active Track */
+        input[type="range"]:active {
+            background: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <label for="volume">Volume:</label>
+    <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+</body>
+</html>
+
+```
 
 ### 26. Focus & Active States  
 - **`:focus`**: Styles applied when an element is focused.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Example</title>
+    <style>
+        input {
+            width: 200px;
+            padding: 10px;
+            border: 2px solid gray;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" placeholder="Focus me">
+</body>
+</html>
+
+```
 - **`:active`**: Styles when an element is clicked.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Example</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:active {
+            background-color: #0d8bf2;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <button>Click Me</button>
+</body>
+</html>
+
+```
 - **`:disabled`**: Styles for disabled elements.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disabled Example</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <button disabled>Disabled Button</button>
+</body>
+</html>
+
+```
 
 ### 27. Outline & Borders  
-- **border-radius**: Rounds element corners.  
-- **border-image**: Uses an image as a border.  
-- **outline**: Defines an outline outside the border.  
+- **border-radius**: Rounds element corners. 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Example</title>
+    <style>
+        .rounded-box {
+            width: 200px;
+            height: 100px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rounded-box">Rounded Box</div>
+</body>
+</html>
+
+```
+- **border-image**: Uses an image as a border. 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Image Example</title>
+    <style>
+        .image-border {
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border: 20px solid;
+            border-image: url('https://via.placeholder.com/30') 30 round;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-border">Image Border</div>
+</body>
+</html>
+
+``` 
+- **outline**: Defines an outline outside the border. 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outline Example</title>
+    <style>
+        .outlined-box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            border: 2px solid blue;
+            outline: 5px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <div class="outlined-box">Outlined Box</div>
+</body>
+</html>
+
+``` 
 
 ### 28. Hover Effects  
 - **`:hover`**: Styles on mouse hover.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Example</title>
+    <style>
+        .hover-box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            transition: background-color 0.3s;
+        }
+
+        .hover-box:hover {
+            background-color: coral;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="hover-box">Hover Over Me</div>
+</body>
+</html>
+
+```
 - **`:focus-within`**: Styles a parent when a child is focused.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Within Example</title>
+    <style>
+        .focus-box {
+            padding: 20px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+
+        .focus-box:focus-within {
+            border-color: green;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="focus-box">
+        <label for="input">Click inside:</label>
+        <input type="text" id="input">
+    </div>
+</body>
+</html>
+
+```
 - **`:target`**: Styles an element targeted by a URL hash.  
-  ```css
-  button:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  ```  
+ ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Example</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: lightgray;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px;
+        }
+
+        #highlight:target {
+            background-color: yellow;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <a href="#highlight">Click to Highlight</a>
+    <div class="box">Box 1</div>
+    <div class="box" id="highlight">Target Box</div>
+    <div class="box">Box 3</div>
+</body>
+</html>
+
+ ```
 ---
 
 ## Animations & Transitions  
@@ -1499,49 +1884,186 @@ Different units define element sizes:
 - **transition-property**: Specifies which property to animate.  
 - **transition-duration**: Defines the time the transition takes.  
 - **ease-in-out**: Smooth start and end.  
-  ```css
-  button {
-    transition: background-color 0.3s ease-in-out;
-  }
-  button:hover {
-    background-color: #ff5733;
-  }
-  ```  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transitions Example</title>
+    <style>
+        .transition-button {
+            background-color: royalblue;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition-property: background-color, transform;
+            transition-duration: 0.5s;
+            transition-timing-function: ease-in-out;
+        }
+
+        .transition-button:hover {
+            background-color: crimson;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <button class="transition-button">Hover Me</button>
+</body>
+</html>
+
+```
+ 
 
 ### 30. CSS Animations  
 - **@keyframes**: Defines animation steps.  
 - **animation-name**: Assigns a name to the animation.  
 - **animation-duration**: Defines how long the animation runs.  
-  ```css
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  .box {
-    animation: fadeIn 1s ease-in-out;
-  }
-  ```  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Example</title>
+    <style>
+        /* Define the animation */
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-50px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Apply the animation to the ball */
+        .ball {
+            width: 50px;
+            height: 50px;
+            background-color: crimson;
+            border-radius: 50%;
+            position: relative;
+            animation-name: bounce;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="ball"></div>
+</body>
+</html>
+
+```
 
 ### 31. Transformations  
 - **rotate()**: Rotates an element.  
 - **scale()**: Resizes an element.  
 - **translate()**: Moves an element.  
 - **skew()**: Skews an element.  
-  ```css
-  .box:hover {
-    transform: scale(1.2) rotate(10deg);
-  }
-  ```  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform Example</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: steelblue;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+        }
+
+        .rotate {
+            transform: rotate(45deg);
+        }
+
+        .scale {
+            transform: scale(1.5);
+        }
+
+        .translate {
+            transform: translate(50px, 20px);
+        }
+
+        .skew {
+            transform: skew(20deg, 10deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box rotate">Rotate</div>
+        <div class="box scale">Scale</div>
+        <div class="box translate">Translate</div>
+        <div class="box skew">Skew</div>
+    </div>
+</body>
+</html>
+
+```
 
 ### 32. Box & Text Shadows  
 - **box-shadow**: Adds shadow to elements.  
 - **text-shadow**: Adds shadow to text.  
-  ```css
-  .box {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  }
-  .text {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  }
-  ``` 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Shadows Example</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: steelblue;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">Box Shadow</div>
+    <p class="text">Text Shadow Effect</p>
+
+</body>
+</html>
+
+```
 --- 
