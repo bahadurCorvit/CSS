@@ -38,10 +38,108 @@ CSS selectors define which elements should be styled. Common selectors include:
 
 ```
 - **Class Selector**: Targets elements with a specific class (`.classname`).
-- **ID Selector**: Targets a unique element (`#idname`).
-- **Attribute Selector**: Selects elements based on attributes (`input[type='text']`).
-- **Combinators**: Define relationships between elements (`div > p`, `ul li`, etc.).
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Selector Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+        .bold-text {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p class="highlight">This paragraph has a yellow background.</p>
+    <p class="bold-text">This text is bold.</p>
+    <p class="highlight bold-text">This text is both bold and highlighted.</p>
+</body>
+</html>
 
+```
+
+- **ID Selector**: Targets a unique element (`#idname`).
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Selector Example</title>
+    <style>
+        #unique {
+            color: red;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <p id="unique">This paragraph has a unique ID and is styled with the ID selector.</p>
+</body>
+</html>
+
+```
+- **Attribute Selector**: Selects elements based on attributes (`input[type='text']`).
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Selector Example</title>
+    <style>
+        input[type="text"] {
+            border: 2px solid blue;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Text input field">
+    <input type="password" placeholder="Password input field">
+</body>
+</html>
+
+```
+- **Combinators**: Define relationships between elements (`div > p`, `ul li`, etc.).
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators Example</title>
+    <style>
+        /* Direct child combinator: Selects <p> elements that are direct children of <div> */
+        div > p {
+            color: green;
+        }
+
+        /* Descendant combinator: Selects <li> elements that are inside <ul> */
+        ul li {
+            list-style-type: square;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>This paragraph is inside a div and will be green.</p>
+        <p>This one too.</p>
+    </div>
+
+    <ul>
+        <li>First list item with square bullets.</li>
+        <li>Second list item with square bullets.</li>
+    </ul>
+</body>
+</html>
+
+```
 ### 3. Cascading & Specificity
 - **Cascading**: Defines how CSS rules are applied and overridden.
 - **Specificity**: Determines which CSS rule takes precedence when multiple rules apply to an element.
