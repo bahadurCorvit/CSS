@@ -208,7 +208,54 @@ Different units define element sizes:
 - **% (Percentage)**: Relative to the parent element’s size.
 - **vw (Viewport Width)**: Percentage of the viewport width.
 - **vh (Viewport Height)**: Percentage of the viewport height.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Units Example</title>
+    <style>
+        .pixel {
+            width: 200px; /* Fixed width */
+            background-color: lightblue;
+        }
 
+        .em {
+            font-size: 2em; /* 2 times the parent font size */
+        }
+
+        .rem {
+            font-size: 2rem; /* 2 times the root (html) font size */
+        }
+
+        .percent {
+            width: 50%; /* 50% of the parent element */
+            background-color: lightgreen;
+        }
+
+        .vw {
+            width: 50vw; /* 50% of the viewport width */
+            background-color: lightcoral;
+        }
+
+        .vh {
+            height: 30vh; /* 30% of the viewport height */
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="pixel">This div is 200px wide.</div>
+    <p class="em">This text is 2em (relative to the parent font-size).</p>
+    <p class="rem">This text is 2rem (relative to the root font-size).</p>
+    <div class="percent">This div is 50% of the parent element.</div>
+    <div class="vw">This div is 50vw (50% of the viewport width).</div>
+    <div class="vh">This div is 30vh (30% of the viewport height).</div>
+</body>
+</html>
+
+```
 ---
 ## Text & Colors
 
