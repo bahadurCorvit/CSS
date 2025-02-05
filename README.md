@@ -264,21 +264,226 @@ Different units define element sizes:
 - **font-size**: Specifies the size of the text.  
 - **line-height**: Controls the spacing between lines of text.  
 - **letter-spacing**: Adjusts the space between characters.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Styling Example</title>
+    <style>
+        .text-style {
+            font-family: Arial, sans-serif; /* Defines the font */
+            font-size: 20px; /* Sets the text size */
+            line-height: 1.5; /* Increases line spacing */
+            letter-spacing: 2px; /* Adds space between characters */
+        }
+    </style>
+</head>
+<body>
+    <p class="text-style">
+        This is a styled paragraph with Arial font, 20px font size, 1.5 line height, and 2px letter spacing.
+    </p>
+</body>
+</html>
+
+```
 
 ### 7.  Color & Backgrounds  
 - **rgb, rgba**: Defines colors using red, green, blue (with optional alpha for transparency).  
 - **hsl**: Defines colors using hue, saturation, and lightness.  
 - **hex**: Specifies colors using hexadecimal values.  
-- **background-image**: Sets an image as the background of an element.  
+- **background-image**: Sets an image as the background of an element.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color and Background Example</title>
+    <style>
+        .rgb {
+            background-color: rgb(255, 0, 0); /* Red */
+            color: white;
+            padding: 10px;
+        }
+
+        .rgba {
+            background-color: rgba(0, 0, 255, 0.5); /* Semi-transparent blue */
+            color: white;
+            padding: 10px;
+        }
+
+        .hsl {
+            background-color: hsl(120, 100%, 50%); /* Bright green */
+            color: white;
+            padding: 10px;
+        }
+
+        .hex {
+            background-color: #ffcc00; /* Yellow */
+            color: black;
+            padding: 10px;
+        }
+
+        .bg-image {
+            background-image: url('https://via.placeholder.com/300'); /* Background image */
+            background-size: cover;
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="rgb">This div has an RGB background.</div>
+    <div class="rgba">This div has an RGBA background (with transparency).</div>
+    <div class="hsl">This div has an HSL background.</div>
+    <div class="hex">This div has a HEX background.</div>
+    <div class="bg-image">This div has a background image.</div>
+</body>
+</html>
+
+```
 
 ### 8. Lists & Tables  
 - **list-style**: Controls the appearance of list markers.  
 - **border-collapse**: Specifies whether table borders should collapse into a single border.  
 - **border-spacing**: Defines the space between table borders.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List & Table Styling Example</title>
+    <style>
+        /* List Styling */
+        .custom-list {
+            list-style: square; /* Changes bullet points to squares */
+        }
+
+        /* Table Styling */
+        table {
+            width: 50%;
+            border: 2px solid black;
+            border-collapse: collapse; /* Merges table borders into one */
+            margin-top: 20px;
+        }
+
+        td, th {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .spacing-table {
+            border-collapse: separate; /* Keeps borders separate */
+            border-spacing: 10px; /* Adds space between borders */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- List Example -->
+    <ul class="custom-list">
+        <li>Item One</li>
+        <li>Item Two</li>
+        <li>Item Three</li>
+    </ul>
+
+    <!-- Table Example (Collapsed Borders) -->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Jane</td>
+            <td>22</td>
+        </tr>
+    </table>
+
+    <!-- Table Example (Separated Borders) -->
+    <table class="spacing-table">
+        <tr>
+            <th>Country</th>
+            <th>Capital</th>
+        </tr>
+        <tr>
+            <td>USA</td>
+            <td>Washington D.C.</td>
+        </tr>
+        <tr>
+            <td>UK</td>
+            <td>London</td>
+        </tr>
+    </table>
+
+</body>
+</html>
+
+```
 
 ### 9. White Space & Hyphenation  
 - **white-space**: Controls how white space is handled in elements.  
 - **hyphens**: Manages word hyphenation behavior.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White-space & Hyphens Example</title>
+    <style>
+        .nowrap {
+            white-space: nowrap; /* Prevents text from wrapping */
+            width: 200px;
+            border: 1px solid black;
+            padding: 5px;
+            overflow: hidden;
+        }
+
+        .pre {
+            white-space: pre; /* Preserves spaces and line breaks */
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .hyphen-auto {
+            width: 200px;
+            border: 1px solid black;
+            padding: 5px;
+            word-wrap: break-word;
+            hyphens: auto; /* Automatically hyphenates long words */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nowrap">
+        This is a long sentence that will not wrap to the next line.
+    </div>
+
+    <div class="pre">
+        This       text preserves spaces
+        and line breaks exactly as written.
+    </div>
+
+    <div class="hyphen-auto">
+        This-is-an-example-of-a-very-long-word-that-might-need-hyphenation.
+    </div>
+
+</body>
+</html>
+
+```
 ---
 
 ## Layout Fundamentals  
