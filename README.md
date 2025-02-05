@@ -493,6 +493,58 @@ Different units define element sizes:
 - **inline**: Elements only take up as much width as necessary.  
 - **inline-block**: Like inline but allows setting width and height.  
 - **none**: Hides the element completely.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Property Example</title>
+    <style>
+        .block {
+            display: block;
+            width: 100%;
+            background-color: lightblue;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .inline {
+            display: inline;
+            background-color: lightcoral;
+            padding: 5px;
+        }
+
+        .inline-block {
+            display: inline-block;
+            width: 150px;
+            background-color: lightgreen;
+            padding: 10px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none; /* Completely hides the element */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="block">This is a block element.</div>
+
+    <span class="inline">This is an inline element.</span>
+    <span class="inline">Another inline element.</span>
+
+    <div class="inline-block">Inline-Block 1</div>
+    <div class="inline-block">Inline-Block 2</div>
+
+    <p class="hidden">This paragraph is hidden using `display: none;`</p>
+
+</body>
+</html>
+
+```
 
 ### 11. Positioning  
 - **static**: Default positioning (follows normal document flow).  
@@ -500,59 +552,511 @@ Different units define element sizes:
 - **absolute**: Positioned relative to the nearest positioned ancestor.  
 - **fixed**: Stays fixed relative to the viewport.  
 - **sticky**: Toggles between relative and fixed based on scroll position.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Example</title>
+    <style>
+        .container {
+            position: relative; /* Acts as the reference for absolute positioning */
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+
+        .static {
+            position: static; /* Default positioning */
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        .relative {
+            position: relative;
+            top: 20px;
+            left: 20px;
+            background-color: lightcoral;
+            padding: 10px;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: lightgreen;
+            padding: 10px;
+        }
+
+        .fixed {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: gold;
+            padding: 10px;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: orange;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="static">This is static (default) positioning.</div>
+
+    <div class="relative">This is relative positioning.</div>
+
+    <div class="container">
+        <div class="absolute">This is absolute positioning (inside container).</div>
+    </div>
+
+    <div class="sticky">This is sticky positioning (sticks when scrolling).</div>
+
+    <div style="height: 1000px;">Scroll down to see the fixed element.</div>
+
+    <div class="fixed">This is fixed positioning (always visible).</div>
+
+</body>
+</html>
+
+```
 
 ### 12. Flexbox Basics  
 - **display: flex**: Enables flexbox layout.  
 - **flex-direction**: Defines the main axis (`row`, `column`).  
 - **justify-content**: Aligns items along the main axis.  
 - **align-items**: Aligns items along the cross axis.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Example</title>
+    <style>
+        .container {
+            display: flex; /* Enables flexbox */
+            flex-direction: row; /* Main axis is horizontal */
+            justify-content: center; /* Centers items horizontally */
+            align-items: center; /* Centers items vertically */
+            height: 200px;
+            border: 2px solid black;
+            background-color: lightgray;
+        }
+
+        .item {
+            width: 50px;
+            height: 50px;
+            background-color: lightblue;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+</body>
+</html>
+
+```
 
 ### 13. CSS Grid Basics  
 - **grid-template-columns**: Defines the number and size of columns.  
 - **grid-template-rows**: Defines the number and size of rows.  
 - **gap**: Sets spacing between grid items.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Example</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 100px 100px 100px; /* Three columns of equal width */
+            grid-template-rows: 100px 100px; /* Two rows of equal height */
+            gap: 10px; /* Spacing between grid items */
+            background-color: lightgray;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+    </div>
+
+</body>
+</html>
+
+```
 
 ### 14. Float & Clear (Legacy)  
 - **float**: Allows elements to be positioned to the left or right.  
 - **clear**: Prevents elements from wrapping around floated elements.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float and Clear Example</title>
+    <style>
+        .container {
+            width: 300px;
+            border: 2px solid black;
+            padding: 10px;
+        }
 
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .clear {
+            clear: both; /* Ensures the next element starts below the floated elements */
+            background-color: lightgray;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box left">Left</div>
+        <div class="box right">Right</div>
+        <div class="clear">This is below floated elements.</div>
+    </div>
+
+</body>
+</html>
+
+```
 ---
 ## Responsive Design & Media Queries  
 
 ### 15. Media Queries  
 - **@media**: Applies styles based on different screen sizes.  
-  - Example:  
-    ```css
-    @media (max-width: 768px) {
-      body {
-        background-color: lightgray;
-      }
-    }
-    ```  
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightgray;
+            text-align: center;
+        }
+
+        .box {
+            width: 100%;
+            height: 200px;
+            background-color: lightblue;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        /* For screens wider than 600px */
+        @media (min-width: 600px) {
+            .box {
+                background-color: lightcoral;
+                font-size: 30px;
+            }
+        }
+
+        /* For screens wider than 1000px */
+        @media (min-width: 1000px) {
+            .box {
+                background-color: lightgreen;
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">Resize the window</div>
+
+</body>
+</html>
+
+```  
 
 ### 16. Viewport Units  
 - **vh (Viewport Height)**: Percentage of the viewport height.  
 - **vw (Viewport Width)**: Percentage of the viewport width.  
 - **vmin**: Smaller value of `vh` or `vw`.  
 - **vmax**: Larger value of `vh` or `vw`.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewport Units Example</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Makes the body fill the full viewport height */
+            background-color: lightgray;
+        }
+
+        .box {
+            width: 50vw; /* 50% of the viewport width */
+            height: 50vh; /* 50% of the viewport height */
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2vmin; /* Font size based on the smaller of vh or vw */
+            border: 2px solid black;
+        }
+
+        .box-large {
+            width: 40vmax; /* 40% of the larger of vh or vw */
+            height: 40vmax; /* 40% of the larger of vh or vw */
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="box-large">
+            Viewport Units
+        </div>
+    </div>
+
+</body>
+</html>
+```
 
 ### 17. Aspect Ratio  
 - **aspect-ratio**: Maintains element proportions.  
-  - Example:  
-    ```css
-    .box {
-      width: 50%;
-      aspect-ratio: 16 / 9;
-    }
-    ```  
+
+```html
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspect Ratio Example</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: lightgray;
+        }
+
+        .box {
+            width: 50vw; /* 50% of the viewport width */
+            aspect-ratio: 16 / 9; /* Maintains a 16:9 aspect ratio */
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        16:9 Aspect Ratio
+    </div>
+
+</body>
+</html>
+
+```  
 
 ### 18. Overflow & Scroll Behavior  
 - **overflow**: Controls content overflow (`visible`, `hidden`, `scroll`, `auto`).  
-- **scroll-behavior**: Defines how scrolling happens (`auto`, `smooth`).  
+- **scroll-behavior**: Defines how scrolling happens (`auto`, `smooth`). 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow and Scroll Behavior Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 300px;
+            height: 200px;
+            margin: 50px auto;
+            background-color: lightgray;
+            overflow: scroll; /* Enables scrolling if content overflows */
+            scroll-behavior: smooth; /* Smooth scrolling when the user scrolls */
+            border: 2px solid black;
+        }
+
+        .content {
+            height: 400px;
+            padding: 10px;
+            background-color: lightblue;
+        }
+
+        .hidden-content {
+            width: 100%;
+            height: 100px;
+            overflow: hidden; /* Hides the overflowed content */
+            background-color: lightcoral;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content">
+            Scroll down to see more content.
+            <div class="hidden-content">Hidden Content</div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+```
 
 ### 19. Mobile-First & Adaptive Layouts  
 - **Mobile-First Approach**: Designing for mobile first and scaling up for larger screens.  
 - **Adaptive Layouts**: Using breakpoints to adjust designs for different devices.  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile-First and Adaptive Layouts</title>
+    <style>
+        /* Mobile-First Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightgray;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            background-color: lightblue;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .box {
+            background-color: lightcoral;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        /* For screens 600px and up (Tablets and Small Laptops) */
+        @media (min-width: 600px) {
+            .container {
+                padding: 30px;
+            }
+
+            .box {
+                font-size: 2rem;
+            }
+        }
+
+        /* For screens 1000px and up (Desktops and Larger Screens) */
+        @media (min-width: 1000px) {
+            .container {
+                width: 70%;
+                margin: auto;
+                padding: 40px;
+            }
+
+            .box {
+                font-size: 2.5rem;
+                margin: 20px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">Mobile-First Approach</div>
+        <div class="box">Responsive Design Example</div>
+    </div>
+
+</body>
+</html>
+
+```
 ---
 
 ## Advanced Layout Techniques  
