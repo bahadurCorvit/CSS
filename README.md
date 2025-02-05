@@ -152,8 +152,54 @@ The box model describes how an element’s dimensions are calculated:
 - **Margin**: Space outside the border.
 - **Border**: A line surrounding the padding and content.
 - **Padding**: Space between the content and the border.
-- **Content**: The actual content inside the element.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Example</title>
+    <style>
+        div {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 30px; /* Adds space outside the border */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        This is a div with a margin of 30px outside the border.
+    </div>
+</body>
+</html>
 
+```
+- **Content**: The actual content inside the element.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Example</title>
+    <style>
+        div {
+            width: 200px;
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        This is the actual content inside the div element.
+    </div>
+</body>
+</html>
+
+```
 ### 5. CSS Units
 Different units define element sizes:
 - **px (Pixels)**: Fixed unit, commonly used for precise sizing.
