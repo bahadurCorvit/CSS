@@ -1079,11 +1079,132 @@ Different units define element sizes:
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   ```  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Named Areas and Auto-fit/Auto-fill</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* auto-fill: adjusts grid items dynamically */
+            grid-template-rows: repeat(2, 200px); /* Two rows with fixed height */
+            gap: 20px;
+            grid-template-areas: 
+                "header header"
+                "main sidebar"
+                "footer footer";
+            padding: 20px;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: lightblue;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: lightcoral;
+            padding: 20px;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: lightgreen;
+            padding: 20px;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: lightgoldenrodyellow;
+            text-align: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">Header (Full Width)</div>
+        <div class="main">Main Content</div>
+        <div class="sidebar">Sidebar</div>
+        <div class="footer">Footer (Full Width)</div>
+    </div>
+
+</body>
+</html>
+
+```
 
 ### 21. Flexbox Advanced  
 - **flex-grow**: Defines how much a flex item should grow.  
 - **flex-shrink**: Determines how items shrink when necessary.  
-- **align-self**: Aligns a single flex item differently from others.  
+- **align-self**: Aligns a single flex item differently from others. 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Grow, Shrink, Align</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between; /* Space between items */
+            align-items: center; /* Vertically centers items */
+            height: 300px;
+            background-color: lightgray;
+            padding: 20px;
+        }
+
+        .item {
+            background-color: lightcoral;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .item-1 {
+            flex-grow: 2; /* Will grow twice as much as other items */
+        }
+
+        .item-2 {
+            flex-grow: 1; /* Default, will grow normally */
+        }
+
+        .item-3 {
+            flex-shrink: 1; /* Will shrink when necessary */
+        }
+
+        .item-4 {
+            flex-shrink: 0; /* Will not shrink, maintains its size */
+        }
+
+        .item-5 {
+            align-self: flex-end; /* Aligns this item to the bottom of the container */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="item item-1">Item 1 (Grow 2)</div>
+        <div class="item item-2">Item 2 (Grow 1)</div>
+        <div class="item item-3">Item 3 (Shrink 1)</div>
+        <div class="item item-4">Item 4 (Shrink 0)</div>
+        <div class="item item-5">Item 5 (Align Self)</div>
+    </div>
+
+</body>
+</html>
+
+```
 
 ### 22. Gap Property (Grid & Flexbox)  
 - Adds spacing between elements in Grid and Flexbox.  
