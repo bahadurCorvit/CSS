@@ -14,6 +14,29 @@ Cascading Style Sheets (CSS) is a stylesheet language used to control the presen
 ### 2. Selectors
 CSS selectors define which elements should be styled. Common selectors include:
 - **Element Selector**: Targets HTML elements (`p`, `h1`, `div`, etc.).
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Selector Example</title>
+    <style>
+        p {
+            color: blue;
+        }
+        h1 {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is a Heading</h1>
+    <p>This is a paragraph.</p>
+</body>
+</html>
+
+```
 - **Class Selector**: Targets elements with a specific class (`.classname`).
 - **ID Selector**: Targets a unique element (`#idname`).
 - **Attribute Selector**: Selects elements based on attributes (`input[type='text']`).
