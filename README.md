@@ -1213,7 +1213,79 @@ Different units define element sizes:
     display: flex;
     gap: 20px;
   }
-  ```  
+  ``` 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid with Gap</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px; /* Adds 20px gap between grid items */
+            padding: 20px;
+        }
+
+        .grid-item {
+            background-color: lightcoral;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item">Item 3</div>
+    </div>
+
+</body>
+</html>
+
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox with Gap</title>
+    <style>
+        .flex-container {
+            display: flex;
+            gap: 20px; /* Adds 20px gap between flex items */
+            padding: 20px;
+        }
+
+        .flex-item {
+            background-color: lightcoral;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex-container">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+    </div>
+
+</body>
+</html>
+
+```
 
 ### 23. Z-index & Stacking Context  
 - **z-index**: Controls element layering (higher values are on top).  
@@ -1224,18 +1296,170 @@ Different units define element sizes:
     z-index: 10;
   }
   ```  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>z-index and Stacking Context</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background-color: lightgray;
+            margin-top: 50px;
+        }
+
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            padding-top: 30px;
+        }
+
+        .box-1 {
+            background-color: lightcoral;
+            left: 50px;
+            top: 50px;
+            z-index: 1; /* Will appear above box 2 */
+        }
+
+        .box-2 {
+            background-color: lightblue;
+            left: 100px;
+            top: 100px;
+            z-index: 0; /* Will appear below box 1 */
+        }
+
+        .box-3 {
+            background-color: lightgreen;
+            left: 150px;
+            top: 150px;
+            z-index: 2; /* Will appear on top of box 1 and box 2 */
+        }
+
+        .nested {
+            position: relative;
+            z-index: 3; /* Creates a new stacking context */
+            width: 100px;
+            height: 100px;
+            background-color: lightyellow;
+            top: 200px;
+            left: 200px;
+        }
+
+        .nested-box {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: darkgray;
+            z-index: 1; /* Works relative to the .nested context */
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box box-1">Box 1</div>
+        <div class="box box-2">Box 2</div>
+        <div class="box box-3">Box 3</div>
+
+        <!-- Nested Stacking Context -->
+        <div class="nested">
+            <div class="nested-box">Nested Box</div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+```
 ---
 
 ## Styling Forms & UI Components  
 
 ### 24. Buttons & Forms  
 - **input, button, textarea, select**: Core form elements.  
-  ```css
-  input {
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  ```  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Example</title>
+</head>
+<body>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+    </form>
+</body>
+</html>
+
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Example</title>
+</head>
+<body>
+    <button type="button" onclick="alert('Button clicked!')">Click Me</button>
+</body>
+</html>
+
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea Example</title>
+</head>
+<body>
+    <form>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" placeholder="Type your message here"></textarea>
+    </form>
+</body>
+</html>
+
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Example</title>
+</head>
+<body>
+    <form>
+        <label for="car">Choose a car:</label>
+        <select id="car" name="car">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+    </form>
+</body>
+</html>
+
+```
 
 ### 25. Custom UI Elements  
 - **Checkboxes & Radio Buttons**: Styled using `appearance` or pseudo-elements.  
